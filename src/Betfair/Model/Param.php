@@ -163,10 +163,10 @@ class Param extends BetfairSerializable implements ParamInterface
     }
 
     /**
-     * @param array $matchProjection
+     * @param MatchProjection $matchProjection
      * @return $this
      */
-    public function setMatchProjection($matchProjection)
+    public function setMatchProjection(MatchProjection $matchProjection)
     {
         $this->matchProjection = $matchProjection;
         return $this;
