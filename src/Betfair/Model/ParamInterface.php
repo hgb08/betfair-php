@@ -56,10 +56,10 @@ interface ParamInterface
     public function setMarketIds(array $marketIds);
 
     /**
-     * @param MatchProjection $matchProjection
+     * @param array $matchProjection
      * @return $this
      */
-    public function setMatchProjection(MatchProjection $matchProjection);
+    public function setMatchProjection($matchProjection);
 
     /**
      * @param $orderProjection
