@@ -13,9 +13,9 @@ class PlaceOrderParam extends BetfairSerializable
     }
 
     /** @var  string */
-    private $marketId;
+    protected $marketId;
 
-    private $placeInstructions;
+    protected $placeInstructions;
 
     /** @var  string */
     private $customRef;
