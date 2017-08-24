@@ -70,6 +70,16 @@ class Betfair
         $this->marketFilterFactory = new MarketFilterFactory();
     }
 
+
+    /**
+     * @return BetfairClientInterface
+     */
+    public function getBetfairClient()
+    {
+        return $this->betfairClient;
+    }
+
+
     public function api(ParamInterface $param, $method)
     {
         $betfairGeneric = $this->getBetfairGeneric();
