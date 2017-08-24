@@ -34,7 +34,13 @@ class PlaceOrders extends AbstractBetfair
     }
 
 
-    public function makePlaceOrders(PlaceOrderParam $placeOrderParam)
+    /**
+     * Place bet.
+     *
+     * @param PlaceOrderParam $placeOrderParam
+     * @return mixed
+     */
+    public function placeBet(PlaceOrderParam $placeOrderParam)
     {
         return $this->adapter->adaptResponse(
             $this->apiNgRequest(self::API_METHOD_NAME, $placeOrderParam)
