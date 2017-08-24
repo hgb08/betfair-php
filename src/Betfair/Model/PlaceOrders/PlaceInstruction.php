@@ -17,24 +17,24 @@ class PlaceInstruction
     }
 
     /** @var  OrderType */
-    private $orderType;
+    public $orderType;
 
     /** @var  int */
-    private $selectionId;
+    public $selectionId;
 
     /** @var  float */
-    private $handicap;
+    public $handicap=0;
 
 
     /** @var  LimitOrder */
-    private $limitOrder;
+    public $limitOrder;
 
-    private $limitOnCloseOrder;
+    public $limitOnCloseOrder;
 
-    private $marketOnCloseOrder;
+    public $marketOnCloseOrder;
 
     /** @var string Side */
-    private $side;
+    public $side;
 
     public function setValidOrderType($orderType)
     {
@@ -92,7 +92,7 @@ class PlaceInstruction
     /**
      * @param mixed $limitOrder
      */
-    public function setLimitOrder($limitOrder)
+    public function setLimitOrder(LimitOrder $limitOrder)
     {
         $this->limitOrder = $limitOrder;
     }

@@ -21,13 +21,13 @@ class LimitOrder
     }
 
     /** @var  float */
-    private $size;
+    public $size;
 
     /** @var  float */
-    private $price;
+    public $price;
 
     /** @var  PersistenceType */
-    private $persistenceType;
+    public $persistenceType;
 
 
     private function setValidPersistenceType($persistenceType)

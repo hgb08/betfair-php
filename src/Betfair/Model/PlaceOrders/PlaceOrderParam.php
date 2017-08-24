@@ -9,20 +9,20 @@ class PlaceOrderParam extends BetfairSerializable
     public function __construct($marketId, array $placeInstructions = array())
     {
         $this->marketId = $marketId;
-        $this->placeInstructions = $placeInstructions;
+        $this->instructions = $placeInstructions;
     }
 
     /** @var  string */
-    protected $marketId;
+    public $marketId;
 
-    protected $placeInstructions;
+    public $instructions;
 
     /** @var  string */
-    private $customRef;
+    public $customRef;
 
     public function addPlaceInstruction(PlaceInstruction $placeInstruction)
     {
-        $this->placeInstructions[] = $placeInstruction;
+        $this->instructions[] = $placeInstruction;
     }
 
     public function setCustomRef($customRef)
