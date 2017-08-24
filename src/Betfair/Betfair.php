@@ -16,6 +16,7 @@ use Betfair\Adapter\ArrayRpcAdapter;
 use Betfair\BettingApi\MarketType\MarketType;
 use Betfair\BettingApi\Order\ClearedOrder;
 use Betfair\BettingApi\Order\CurrentOrder;
+use Betfair\BettingApi\PlaceOrders\PlaceOrders;
 use Betfair\BettingApi\Venues\Venues;
 use Betfair\Client\BetfairClientInterface;
 use Betfair\BettingApi\Competition\Competition;
@@ -68,6 +69,16 @@ class Betfair
         $this->paramFactory = new ParamFactory();
         $this->marketFilterFactory = new MarketFilterFactory();
     }
+
+
+    /**
+     * @return BetfairClientInterface
+     */
+    public function getBetfairClient()
+    {
+        return $this->betfairClient;
+    }
+
 
     public function api(ParamInterface $param, $method)
     {
@@ -177,5 +188,11 @@ class Betfair
     public function getBetfairAccountDetails()
     {
         return new AccountDetails($this->betfairClient, $this->adapter, $this->paramFactory, $this->marketFilterFactory);
+    }
+
+
+    public function getBetfairPlaceOrders()
+    {
+        return new PlaceOrders($this->betfairClient, $this->adapter, $this->paramFactory, $this->marketFilterFactory);
     }
 }

@@ -9,7 +9,7 @@ use Betfair\Model\Side;
 class PlaceInstruction
 {
 
-    public function __construct($orderType, $selectionId, Side $side)
+    public function __construct($orderType, $selectionId, $side)
     {
         $this->setValidOrderType($orderType);
         $this->selectionId = $selectionId;
@@ -17,24 +17,24 @@ class PlaceInstruction
     }
 
     /** @var  OrderType */
-    private $orderType;
+    public $orderType;
 
     /** @var  int */
-    private $selectionId;
+    public $selectionId;
 
     /** @var  float */
-    private $handicap;
+    public $handicap=0;
 
 
     /** @var  LimitOrder */
-    private $limitOrder;
+    public $limitOrder;
 
-    private $limitOnCloseOrder;
+    public $limitOnCloseOrder;
 
-    private $marketOnCloseOrder;
+    public $marketOnCloseOrder;
 
-    /** @var  Side */
-    private $side;
+    /** @var string Side */
+    public $side;
 
     public function setValidOrderType($orderType)
     {
@@ -92,7 +92,7 @@ class PlaceInstruction
     /**
      * @param mixed $limitOrder
      */
-    public function setLimitOrder($limitOrder)
+    public function setLimitOrder(LimitOrder $limitOrder)
     {
         $this->limitOrder = $limitOrder;
     }
@@ -104,4 +104,4 @@ class PlaceInstruction
     {
         $this->marketOnCloseOrder = $marketOnCloseOrder;
     }
-} 
+}

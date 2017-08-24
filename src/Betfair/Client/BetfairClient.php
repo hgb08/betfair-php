@@ -31,6 +31,16 @@ class BetfairClient implements BetfairClientInterface
         $this->betfairGuzzleClient = $guzzleClient;
     }
 
+
+    /**
+     * @return CredentialInterface
+     */
+    public function getCredential()
+    {
+        return $this->credential;
+    }
+
+
     /**
      * @param string $operationName operation name
      * @param ParamInterface $param Param to be serialized in the request
