@@ -5,12 +5,13 @@ namespace Betfair\Model\PlaceOrders;
 
 use Betfair\Exception\ModelException;
 
+
 class LimitOrder
 {
 
     /**
-     * @param float $size
-     * @param float $price
+     * @param float  $size
+     * @param float  $price
      * @param string $persistenceType
      */
     public function __construct($size, $price, $persistenceType)
@@ -19,6 +20,7 @@ class LimitOrder
         $this->price = $price;
         $this->setValidPersistenceType($persistenceType);
     }
+
 
     /** @var  float */
     public $size;
@@ -29,10 +31,22 @@ class LimitOrder
     /** @var  PersistenceType */
     public $persistenceType;
 
+    /** @var  timeInForce */
+    public $timeInForce;
+
+
+    public function setTimeInForce($state)
+    {
+        if ($state) {
+            $this->timeInForce = 'FILL_OR_KILL';
+        }
+        return $this;
+    }
+
 
     private function setValidPersistenceType($persistenceType)
     {
-        if(!in_array($persistenceType, PersistenceType::toArray())) {
+        if (!in_array($persistenceType, PersistenceType::toArray())) {
             throw new ModelException(
                 sprintf("Not valid persistence type %s. Valid ones are %s",
                     $persistenceType,
@@ -43,6 +57,7 @@ class LimitOrder
         $this->persistenceType = $persistenceType;
     }
 
+
     /**
      * @return \Betfair\Model\PlaceOrders\PersistenceType
      */
@@ -51,6 +66,7 @@ class LimitOrder
         return $this->persistenceType;
     }
 
+
     /**
      * @return float
      */
@@ -58,6 +74,7 @@ class LimitOrder
     {
         return $this->price;
     }
+
 
     /**
      * @return float
