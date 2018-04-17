@@ -39,7 +39,7 @@ class BetfairGuzzleClientFactory
     {
         $guzzleHeaderSpec = file_get_contents(sprintf("%s/api_version_description.yml", $specificationDir));
         $yamlLoader = new Yaml();
-        $headersArray = $yamlLoader->parse(file_get_contents($guzzleHeaderSpec));
+        $headersArray = $yamlLoader->parse($guzzleHeaderSpec);
         $headersArray = $this->mergeUserHeaderOptions($headersArray, $options);
 
         $headersArray['operations'] = array();
